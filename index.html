@@ -1,1 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Buy - Online Shopping</title>
 
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+      color: #123f3b;
+    }
+
+    header {
+      background: #f58220;
+      padding: 18px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .search {
+      flex: 1;
+      max-width: 550px;
+      display: flex;
+    }
+
+    .search input {
+      width: 100%;
+      padding: 13px 18px;
+      border: none;
+      border-radius: 25px 0 0 25px;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .search button {
+      padding: 13px 22px;
+      border: none;
+      background: #123f3b;
+      color: white;
+      border-radius: 0 25px 25px 0;
+      cursor: pointer;
+    }
+
+    .cart {
+      color: white;
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    nav {
+      background: #123f3b;
+      padding: 14px 6%;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 18px;
+      font-weight: bold;
+    }
+
+    .hero {
+      padding: 70px 6%;
+      background: linear-gradient(120deg, #fff1df, #e7f3f1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .hero h1 {
+      font-size: 50px;
+      margin-bottom: 15px;
+      color: #123f3b;
+    }
+
+    .hero h1 span {
+      color: #f58220;
+    }
+
+    .hero p {
+      font-size: 19px;
+      margin-bottom: 25px;
+      color: #555;
+    }
+
+    .shop-btn {
+      display: inline-block;
+      background: #f58220;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero-box {
+      font-size: 100px;
+    }
+
+    .section {
+      padding: 45px 6%;
+    }
+
+    .section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 30px;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+    }
+
+    .category {
+      background: white;
+      padding: 28px 15px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .category .icon {
+      font-size: 45px;
+      margin-bottom: 12px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      padding-bottom: 18px;
+    }
+
+    .product-img {
+      height: 190px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f1f1f1;
+      font-size: 75px;
+    }
+
+    .product h3 {
+      padding: 15px 15px 5px;
+      color: #123f3b;
+    }
+
+    .price {
+      padding: 5px 15px 15px;
+      color: #f58220;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .buy {
+      margin-left: 15px;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 20px;
+      background: #123f3b;
+      color: white;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #123f3b;
+      color: white;
+      text-align: center;
+      padding: 30px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 700px) {
+      .hero {
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero-box {
+        display: none;
+      }
+
+      nav a {
+        margin: 0 7px;
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Happy Buy</div>
+
+    <div class="search">
+      <input type="text" placeholder="Search products...">
+      <button>Search</button>
+    </div>
+
+    <div class="cart">🛒 Cart</div>
+  </header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#categories">Categories</a>
+    <a href="#products">Products</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Welcome to <span>Happy Buy</span></h1>
+      <p>
+        Discover quality products at amazing prices.
+        Shop electronics, fashion, home products and more.
+      </p>
+      <a href="#products" class="shop-btn">Shop Now</a>
+    </div>
+
+    <div class="hero-box">🛍️</div>
+  </section>
+
+  <section class="section" id="categories">
+    <h2>Shop by Category</h2>
+
+    <div class="categories">
+
+      <div class="category">
+        <div class="icon">📱</div>
+        Electronics
+      </div>
+
+      <div class="category">
+        <div class="icon">👟</div>
+        Shoes
+      </div>
+
+      <div class="category">
+        <div class="icon">🏠</div>
+        Home Products
+      </div>
+
+      <div class="category">
+        <div class="icon">💪</div>
+        Fitness
+      </div>
+
+      <div class="category">
+        <div class="icon">🎧</div>
+        Accessories
+      </div>
+
+      <div class="category">
+        <div class="icon">🛍️</div>
+        More
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" id="products">
+    <h2>Featured Products</h2>
+
+    <div class="products">
+
+      <div class="product">
+        <div class="product-img">🎧</div>
+        <h3>Wireless Headphones</h3>
+        <div class="price">Rs. 4,500</div>
+        <button class="buy">Add to Cart</button>
+      </div>
+
+      <div class="product">
+        <div class="product-img">⌚</div>
+        <h3>Smart Watch</h3>
+        <div class="price">Rs. 6,500</div>
+        <button class="buy">Add to Cart</button>
+      </div>
+
+      <div class="product">
+        <div class="product-img">👟</div>
+        <h3>Fashion Shoes</h3>
+        <div class="price">Rs. 5,900</div>
+        <button class="buy">Add to Cart</button>
+      </div>
+
+      <div class="product">
+        <div class="product-img">🏠</div>
+        <h3>Home Product</h3>
+        <div class="price">Rs. 2,500</div>
+        <button class="buy">Add to Cart</button>
+      </div>
+
+    </div>
+  </section>
+
+  <footer id="contact">
+    <h3>Happy Buy</h3>
+    <p>Quality Products • Great Prices • Happy Shopping</p>
+    <br>
+    <p>© 2026 Happy Buy. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
