@@ -1,344 +1,928 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Buy - Online Shopping</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Buy | Online Shopping</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,Helvetica,sans-serif;
+}
 
-    body {
-      background: #f5f5f5;
-      color: #123f3b;
-    }
+body{
+  background:#f6f8f8;
+  color:#064b49;
+}
 
-    header {
-      background: #f58220;
-      padding: 18px 6%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+a{
+  text-decoration:none;
+  color:inherit;
+}
 
-    .logo {
-      font-size: 30px;
-      font-weight: bold;
-      color: white;
-    }
+/* HEADER */
+.header{
+  background:white;
+  height:82px;
+  display:flex;
+  align-items:center;
+  gap:35px;
+  padding:0 4%;
+  box-shadow:0 2px 10px #00000010;
+}
 
-    .search {
-      flex: 1;
-      max-width: 550px;
-      display: flex;
-    }
+.logo{
+  font-size:30px;
+  font-weight:800;
+  white-space:nowrap;
+}
 
-    .search input {
-      width: 100%;
-      padding: 13px 18px;
-      border: none;
-      border-radius: 25px 0 0 25px;
-      outline: none;
-      font-size: 15px;
-    }
+.logo span:first-child{
+  color:#ff6418;
+}
 
-    .search button {
-      padding: 13px 22px;
-      border: none;
-      background: #123f3b;
-      color: white;
-      border-radius: 0 25px 25px 0;
-      cursor: pointer;
-    }
+.logo span:last-child{
+  color:#075653;
+}
 
-    .cart {
-      color: white;
-      font-weight: bold;
-      font-size: 17px;
-    }
+.search{
+  flex:1;
+  height:45px;
+  border:1px solid #ddd;
+  border-radius:25px;
+  display:flex;
+  overflow:hidden;
+  max-width:720px;
+}
 
-    nav {
-      background: #123f3b;
-      padding: 14px 6%;
-      text-align: center;
-    }
+.search input{
+  flex:1;
+  border:0;
+  outline:0;
+  padding:0 20px;
+  font-size:14px;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 18px;
-      font-weight: bold;
-    }
+.search select{
+  border:0;
+  border-left:1px solid #ddd;
+  padding:0 18px;
+  outline:0;
+}
 
-    .hero {
-      padding: 70px 6%;
-      background: linear-gradient(120deg, #fff1df, #e7f3f1);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-    }
+.search button{
+  width:55px;
+  border:0;
+  background:#ff6418;
+  color:white;
+  font-size:20px;
+  cursor:pointer;
+}
 
-    .hero-text {
-      max-width: 600px;
-    }
+.header-actions{
+  display:flex;
+  gap:28px;
+  align-items:center;
+}
 
-    .hero h1 {
-      font-size: 50px;
-      margin-bottom: 15px;
-      color: #123f3b;
-    }
+.action{
+  text-align:center;
+  font-size:13px;
+  color:#123d3b;
+}
 
-    .hero h1 span {
-      color: #f58220;
-    }
+.action-icon{
+  font-size:22px;
+  display:block;
+}
 
-    .hero p {
-      font-size: 19px;
-      margin-bottom: 25px;
-      color: #555;
-    }
+.cart-count{
+  background:#ff6418;
+  color:white;
+  border-radius:50%;
+  font-size:10px;
+  padding:3px 6px;
+}
 
-    .shop-btn {
-      display: inline-block;
-      background: #f58220;
-      color: white;
-      padding: 14px 28px;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+/* NAVIGATION */
+.nav{
+  height:48px;
+  background:#00504d;
+  color:white;
+  display:flex;
+  align-items:center;
+  padding:0 4%;
+  gap:42px;
+}
 
-    .hero-box {
-      font-size: 100px;
-    }
+.categories-btn{
+  background:#ff6418;
+  height:48px;
+  padding:0 25px;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  font-weight:bold;
+}
 
-    .section {
-      padding: 45px 6%;
-    }
+.nav a{
+  font-size:14px;
+}
 
-    .section h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 30px;
-    }
+.nav a:hover{
+  color:#ff6418;
+}
 
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 20px;
-    }
+/* MAIN */
+.container{
+  width:94%;
+  max-width:1500px;
+  margin:15px auto;
+}
 
-    .category {
-      background: white;
-      padding: 28px 15px;
-      border-radius: 15px;
-      text-align: center;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-      font-size: 18px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+/* HERO */
+.hero-grid{
+  display:grid;
+  grid-template-columns:220px 1fr 260px;
+  gap:12px;
+}
 
-    .category .icon {
-      font-size: 45px;
-      margin-bottom: 12px;
-    }
+.sidebar{
+  background:white;
+  border-radius:12px;
+  padding:10px;
+  box-shadow:0 2px 12px #0000000c;
+}
 
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 22px;
-    }
+.sidebar h3{
+  padding:15px;
+  font-size:16px;
+}
 
-    .product {
-      background: white;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-      padding-bottom: 18px;
-    }
+.side-item{
+  padding:11px 14px;
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+  border-radius:7px;
+  cursor:pointer;
+}
 
-    .product-img {
-      height: 190px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #f1f1f1;
-      font-size: 75px;
-    }
+.side-item:hover{
+  background:#fff1e8;
+  color:#ff6418;
+}
 
-    .product h3 {
-      padding: 15px 15px 5px;
-      color: #123f3b;
-    }
+.hero{
+  min-height:300px;
+  border-radius:15px;
+  padding:45px 65px;
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(110deg,#fff0dc,#ffe1c0);
+}
 
-    .price {
-      padding: 5px 15px 15px;
-      color: #f58220;
-      font-size: 20px;
-      font-weight: bold;
-    }
+.hero small{
+  letter-spacing:2px;
+  font-weight:bold;
+}
 
-    .buy {
-      margin-left: 15px;
-      padding: 10px 18px;
-      border: none;
-      border-radius: 20px;
-      background: #123f3b;
-      color: white;
-      cursor: pointer;
-    }
+.hero h1{
+  font-size:47px;
+  margin:10px 0;
+  line-height:1;
+}
 
-    footer {
-      background: #123f3b;
-      color: white;
-      text-align: center;
-      padding: 30px;
-      margin-top: 30px;
-    }
+.hero h1 span{
+  color:#ff6418;
+}
 
-    @media (max-width: 700px) {
-      .hero {
-        text-align: center;
-      }
+.hero p{
+  font-size:17px;
+  line-height:1.5;
+  width:370px;
+}
 
-      .hero h1 {
-        font-size: 38px;
-      }
+.shop-btn{
+  display:inline-block;
+  background:#ff6418;
+  color:white;
+  padding:12px 25px;
+  border-radius:25px;
+  margin-top:18px;
+  font-weight:bold;
+}
 
-      .hero-box {
-        display: none;
-      }
+.discount{
+  position:absolute;
+  right:35px;
+  top:30px;
+  background:#ff6418;
+  color:white;
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-weight:bold;
+  font-size:17px;
+}
 
-      nav a {
-        margin: 0 7px;
-        font-size: 13px;
-      }
-    }
-  </style>
+.shoes{
+  position:absolute;
+  right:35px;
+  bottom:5px;
+  font-size:105px;
+}
+
+.electronics{
+  background:#00504d;
+  color:white;
+  border-radius:15px;
+  padding:25px;
+  position:relative;
+  overflow:hidden;
+}
+
+.electronics h2{
+  font-size:27px;
+}
+
+.electronics h2 span{
+  color:#ff6418;
+}
+
+.electronics p{
+  margin:8px 0 15px;
+  font-size:13px;
+}
+
+.electronics .shop-btn{
+  font-size:12px;
+}
+
+.electro-img{
+  font-size:65px;
+  text-align:center;
+  margin-top:25px;
+}
+
+/* BENEFITS */
+.benefits{
+  background:white;
+  margin-top:14px;
+  padding:20px;
+  border-radius:13px;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  box-shadow:0 2px 10px #00000008;
+}
+
+.benefit{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  border-right:1px solid #ddd;
+}
+
+.benefit:last-child{
+  border:0;
+}
+
+.benefit-icon{
+  font-size:30px;
+}
+
+.benefit strong{
+  display:block;
+  font-size:13px;
+}
+
+.benefit small{
+  color:#777;
+}
+
+/* SECTION */
+.section-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:30px 0 15px;
+}
+
+.section-title h2{
+  font-size:25px;
+  border-left:4px solid #ff6418;
+  padding-left:12px;
+}
+
+.view{
+  color:#ff6418;
+  font-weight:bold;
+}
+
+/* PRODUCTS */
+.products{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:13px;
+}
+
+.product{
+  background:white;
+  border-radius:12px;
+  overflow:hidden;
+  padding-bottom:12px;
+  box-shadow:0 2px 9px #00000010;
+  transition:.2s;
+}
+
+.product:hover{
+  transform:translateY(-4px);
+  box-shadow:0 7px 20px #00000018;
+}
+
+.product-img{
+  height:175px;
+  background:#f4f5f5;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:80px;
+  position:relative;
+}
+
+.sale{
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:#ff6418;
+  color:white;
+  padding:5px 9px;
+  border-radius:15px;
+  font-size:11px;
+}
+
+.heart{
+  position:absolute;
+  right:10px;
+  top:10px;
+  background:white;
+  border:1px solid #ddd;
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.product-info{
+  padding:10px;
+}
+
+.rating{
+  color:#ff9d00;
+  font-size:12px;
+}
+
+.product h3{
+  font-size:14px;
+  margin:7px 0;
+  color:#064b49;
+}
+
+.product p{
+  color:#888;
+  font-size:11px;
+}
+
+.price{
+  color:#ff6418;
+  font-size:17px;
+  font-weight:bold;
+  margin:9px 0;
+}
+
+.old-price{
+  color:#999;
+  font-size:11px;
+  text-decoration:line-through;
+  margin-left:5px;
+}
+
+.add{
+  width:100%;
+  border:0;
+  background:#ff6418;
+  color:white;
+  border-radius:20px;
+  padding:10px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* PROMO */
+.promos{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr;
+  gap:14px;
+  margin-top:20px;
+}
+
+.promo{
+  min-height:125px;
+  border-radius:14px;
+  padding:22px;
+  color:white;
+  overflow:hidden;
+  position:relative;
+}
+
+.promo h2{
+  font-size:20px;
+}
+
+.promo span{
+  color:#ff6418;
+}
+
+.promo p{
+  font-size:12px;
+  margin:7px 0;
+}
+
+.promo-btn{
+  display:inline-block;
+  background:#ff6418;
+  color:white;
+  padding:8px 15px;
+  border-radius:20px;
+  font-size:11px;
+}
+
+.promo-home{
+  background:#00504d;
+}
+
+.promo-fashion{
+  background:#ffe1ca;
+  color:#064b49;
+}
+
+.promo-deals{
+  background:#00504d;
+}
+
+/* FOOTER */
+footer{
+  background:#004744;
+  color:white;
+  margin-top:30px;
+  padding:30px 5%;
+}
+
+.footer-main{
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+}
+
+.footer-logo{
+  font-size:25px;
+  font-weight:bold;
+}
+
+.footer-links{
+  display:flex;
+  gap:25px;
+  align-items:center;
+  font-size:13px;
+}
+
+.social{
+  display:flex;
+  gap:15px;
+  font-size:20px;
+}
+
+.copyright{
+  margin-top:25px;
+  padding-top:15px;
+  border-top:1px solid #ffffff30;
+  text-align:center;
+  font-size:12px;
+}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .hero-grid{
+    grid-template-columns:180px 1fr;
+  }
+
+  .electronics{
+    display:none;
+  }
+
+  .products{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
+
+@media(max-width:750px){
+  .header{
+    height:auto;
+    padding:15px;
+    flex-wrap:wrap;
+  }
+
+  .search{
+    order:3;
+    flex-basis:100%;
+  }
+
+  .nav{
+    overflow:auto;
+    gap:20px;
+  }
+
+  .sidebar{
+    display:none;
+  }
+
+  .hero-grid{
+    display:block;
+  }
+
+  .hero{
+    min-height:360px;
+    padding:35px 25px;
+  }
+
+  .hero h1{
+    font-size:36px;
+  }
+
+  .hero p{
+    width:260px;
+  }
+
+  .shoes{
+    opacity:.3;
+  }
+
+  .benefits{
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+  }
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .promos{
+    grid-template-columns:1fr;
+  }
+
+  .footer-main{
+    flex-direction:column;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">Happy Buy</div>
+<!-- HEADER -->
+<header class="header">
 
-    <div class="search">
-      <input type="text" placeholder="Search products...">
-      <button>Search</button>
+  <div class="logo">
+    🛒 <span>Happy</span> <span>Buy</span>
+  </div>
+
+  <div class="search">
+    <input type="text" placeholder="Search for products, brands and more...">
+    <select>
+      <option>All Categories</option>
+      <option>Electronics</option>
+      <option>Fashion</option>
+      <option>Home & Living</option>
+      <option>Sports</option>
+    </select>
+    <button>🔍</button>
+  </div>
+
+  <div class="header-actions">
+
+    <div class="action">
+      <span class="action-icon">👤</span>
+      Login / Register
     </div>
 
-    <div class="cart">🛒 Cart</div>
-  </header>
-
-  <nav>
-    <a href="#">Home</a>
-    <a href="#categories">Categories</a>
-    <a href="#products">Products</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Welcome to <span>Happy Buy</span></h1>
-      <p>
-        Discover quality products at amazing prices.
-        Shop electronics, fashion, home products and more.
-      </p>
-      <a href="#products" class="shop-btn">Shop Now</a>
+    <div class="action">
+      <span class="action-icon">♡</span>
+      Wishlist
     </div>
 
-    <div class="hero-box">🛍️</div>
-  </section>
-
-  <section class="section" id="categories">
-    <h2>Shop by Category</h2>
-
-    <div class="categories">
-
-      <div class="category">
-        <div class="icon">📱</div>
-        Electronics
-      </div>
-
-      <div class="category">
-        <div class="icon">👟</div>
-        Shoes
-      </div>
-
-      <div class="category">
-        <div class="icon">🏠</div>
-        Home Products
-      </div>
-
-      <div class="category">
-        <div class="icon">💪</div>
-        Fitness
-      </div>
-
-      <div class="category">
-        <div class="icon">🎧</div>
-        Accessories
-      </div>
-
-      <div class="category">
-        <div class="icon">🛍️</div>
-        More
-      </div>
-
+    <div class="action">
+      <span class="action-icon">
+        🛒 <sup class="cart-count">0</sup>
+      </span>
+      Cart
     </div>
-  </section>
 
-  <section class="section" id="products">
-    <h2>Featured Products</h2>
+  </div>
 
-    <div class="products">
+</header>
 
-      <div class="product">
-        <div class="product-img">🎧</div>
-        <h3>Wireless Headphones</h3>
-        <div class="price">Rs. 4,500</div>
-        <button class="buy">Add to Cart</button>
-      </div>
+<!-- NAVIGATION -->
+<nav class="nav">
 
-      <div class="product">
-        <div class="product-img">⌚</div>
-        <h3>Smart Watch</h3>
-        <div class="price">Rs. 6,500</div>
-        <button class="buy">Add to Cart</button>
-      </div>
+  <div class="categories-btn">
+    ☰ &nbsp; All Categories
+  </div>
 
-      <div class="product">
-        <div class="product-img">👟</div>
-        <h3>Fashion Shoes</h3>
-        <div class="price">Rs. 5,900</div>
-        <button class="buy">Add to Cart</button>
-      </div>
+  <a href="#">Home</a>
+  <a href="#">Electronics</a>
+  <a href="#">Fashion</a>
+  <a href="#">Home & Living</a>
+  <a href="#">Sports & Fitness</a>
+  <a href="#">Beauty & Health</a>
+  <a href="#">More ▾</a>
 
-      <div class="product">
-        <div class="product-img">🏠</div>
-        <h3>Home Product</h3>
-        <div class="price">Rs. 2,500</div>
-        <button class="buy">Add to Cart</button>
-      </div>
+</nav>
 
+<main class="container">
+
+<!-- HERO -->
+<section class="hero-grid">
+
+  <aside class="sidebar">
+
+    <h3>All Categories</h3>
+
+    <div class="side-item">📱 Electronics <b>›</b></div>
+    <div class="side-item">👕 Fashion <b>›</b></div>
+    <div class="side-item">👟 Shoes <b>›</b></div>
+    <div class="side-item">🏠 Home & Living <b>›</b></div>
+    <div class="side-item">🏋️ Sports & Fitness <b>›</b></div>
+    <div class="side-item">💄 Beauty & Health <b>›</b></div>
+    <div class="side-item">🎮 Toys & Games <b>›</b></div>
+    <div class="side-item">🚗 Automotive <b>›</b></div>
+    <div class="side-item">📚 Books <b>›</b></div>
+    <div class="side-item">▦ More Categories <b>›</b></div>
+
+  </aside>
+
+  <div class="hero">
+
+    <small>BEST DEALS. EVERYDAY.</small>
+
+    <h1>
+      Run Better.<br>
+      <span>Be Stronger.</span>
+    </h1>
+
+    <p>
+      Premium Sports Shoes for<br>
+      Your Active Lifestyle
+    </p>
+
+    <a href="#products" class="shop-btn">
+      Shop Now →
+    </a>
+
+    <div class="discount">
+      UP TO<br>
+      50% OFF
     </div>
-  </section>
 
-  <footer id="contact">
-    <h3>Happy Buy</h3>
-    <p>Quality Products • Great Prices • Happy Shopping</p>
-    <br>
-    <p>© 2026 Happy Buy. All Rights Reserved.</p>
-  </footer>
+    <div class="shoes">👟</div>
+
+  </div>
+
+  <div class="electronics">
+
+    <h2>Latest<br><span>Electronics</span></h2>
+
+    <p>Top Brands | Best Prices</p>
+
+    <a href="#" class="shop-btn">Shop Now →</a>
+
+    <div class="electro-img">
+      📱 🎧 💻
+    </div>
+
+  </div>
+
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+
+  <div class="benefit">
+    <div class="benefit-icon">🚚</div>
+    <div>
+      <strong>Free Delivery</strong>
+      <small>Orders over Rs. 5,000</small>
+    </div>
+  </div>
+
+  <div class="benefit">
+    <div class="benefit-icon">🛡️</div>
+    <div>
+      <strong>Secure Payment</strong>
+      <small>100% secure payments</small>
+    </div>
+  </div>
+
+  <div class="benefit">
+    <div class="benefit-icon">🎧</div>
+    <div>
+      <strong>24/7 Support</strong>
+      <small>We're here to help</small>
+    </div>
+  </div>
+
+  <div class="benefit">
+    <div class="benefit-icon">📦</div>
+    <div>
+      <strong>Easy Returns</strong>
+      <small>Hassle free returns</small>
+    </div>
+  </div>
+
+  <div class="benefit">
+    <div class="benefit-icon">⭐</div>
+    <div>
+      <strong>Best Price</strong>
+      <small>Shop with confidence</small>
+    </div>
+  </div>
+
+</section>
+
+<!-- PRODUCTS -->
+<div class="section-title">
+  <h2>Popular Products</h2>
+  <a class="view" href="#">View All →</a>
+</div>
+
+<section class="products" id="products">
+
+  <div class="product">
+    <div class="product-img">
+      <span class="sale">-15%</span>
+      <button class="heart">♡</button>
+      📱
+    </div>
+    <div class="product-info">
+      <div class="rating">★ 4.5 (1.2k)</div>
+      <h3>Samsung Galaxy A55</h3>
+      <p>8GB RAM | 256GB | 5G</p>
+      <div class="price">Rs. 89,999 <span class="old-price">Rs.106,999</span></div>
+      <button class="add">🛒 Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <div class="product-img">
+      <span class="sale">-20%</span>
+      <button class="heart">♡</button>
+      🎧
+    </div>
+    <div class="product-info">
+      <div class="rating">★ 4.6 (856)</div>
+      <h3>Wireless Earbuds</h3>
+      <p>Bluetooth 5.3 | 25H Playtime</p>
+      <div class="price">Rs. 3,999 <span class="old-price">Rs.4,999</span></div>
+      <button class="add">🛒 Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <div class="product-img">
+      <span class="sale">-25%</span>
+      <button class="heart">♡</button>
+      👟
+    </div>
+    <div class="product-info">
+      <div class="rating">★ 4.4 (742)</div>
+      <h3>Running Shoes</h3>
+      <p>Lightweight | Breathable</p>
+      <div class="price">Rs. 5,999 <span class="old-price">Rs.7,999</span></div>
+      <button class="add">🛒 Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <div class="product-img">
+      <span class="sale">-18%</span>
+      <button class="heart">♡</button>
+      ⌚
+    </div>
+    <div class="product-info">
+      <div class="rating">★ 4.5 (628)</div>
+      <h3>Smart Watch Pro</h3>
+      <p>AMOLED | 100+ Sports</p>
+      <div class="price">Rs. 6,499 <span class="old-price">Rs.7,999</span></div>
+      <button class="add">🛒 Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <div class="product-img">
+      <span class="sale">-30%</span>
+      <button class="heart">♡</button>
+      🍟
+    </div>
+    <div class="product-info">
+      <div class="rating">★ 4.7 (432)</div>
+      <h3>Philips Air Fryer</h3>
+      <p>4.1L | Rapid Air Technology</p>
+      <div class="price">Rs. 12,999 <span class="old-price">Rs.18,999</span></div>
+      <button class="add">🛒 Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <div class="product-img">
+      <span class="sale">-22%</span>
+      <button class="heart">♡</button>
+      🎮
+    </div>
+    <div class="product-info">
+      <div class="rating">★ 4.6 (511)</div>
+      <h3>Gaming Headphones</h3>
+      <p>Wireless | 40H Playtime</p>
+      <div class="price">Rs. 7,499 <span class="old-price">Rs.9,699</span></div>
+      <button class="add">🛒 Add to Cart</button>
+    </div>
+  </div>
+
+</section>
+
+<!-- PROMOTIONS -->
+<section class="promos">
+
+  <div class="promo promo-home">
+    <h2>Smart Home<br><span>Better Living</span></h2>
+    <p>Modern home essentials for a comfortable life.</p>
+    <a href="#" class="promo-btn">Shop Now →</a>
+  </div>
+
+  <div class="promo promo-fashion">
+    <h2>Fashion <span>Collection</span></h2>
+    <p>Style for everyone</p>
+    <a href="#" class="promo-btn">Shop Now →</a>
+  </div>
+
+  <div class="promo promo-deals">
+    <h2>Top Deals<br><span>Under Rs. 1,000</span></h2>
+    <p>Great products. Unbeatable prices.</p>
+    <a href="#" class="promo-btn">Shop Now →</a>
+  </div>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+
+  <div class="footer-main">
+
+    <div>
+      <div class="footer-logo">🛒 Happy Buy</div>
+      <small>Shop Smarter, Live Better</small>
+    </div>
+
+    <div class="footer-links">
+      <a href="#">About Us</a>
+      <a href="#">Help</a>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Contact Us</a>
+    </div>
+
+    <div class="social">
+      f
+      ◎
+      ▶
+      ♪
+    </div>
+
+  </div>
+
+  <div class="copyright">
+    © 2026 Happy Buy. All Rights Reserved.
+  </div>
+
+</footer>
 
 </body>
 </html>
